@@ -10,6 +10,8 @@ RUN dotnet restore SimpleApi/SimpleApi.csproj
 # Copy the rest of the source code
 COPY . ./
 
+RUN dotnet build SimpleApi/SimpleApi.csproj
+
 # Publish the application
 RUN dotnet publish SimpleApi/SimpleApi.csproj -c Release -o out
 
