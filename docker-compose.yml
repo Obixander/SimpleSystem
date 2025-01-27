@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  api:
+    image: obixander/api-image:latest
+    ports:
+      - "5000:7139"
+    restart: always
+
+  blazor:
+    image: obixander/blazor-image:latest
+    ports:
+      - "8080:8080"
+    restart: always
