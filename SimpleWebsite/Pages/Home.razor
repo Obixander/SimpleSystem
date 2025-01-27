@@ -1,0 +1,29 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+@if (temp != "")
+{
+    <p>@temp</p>
+}
+
+Welcome to your new app.
+
+
+@code {
+    public string temp = "";
+    protected async override void OnInitialized()
+    {
+        Console.WriteLine("Home page initialized");
+        HttpClient client = new HttpClient();
+        client.BaseAddress = new Uri("https://localhost:5000");
+        var test = await client.GetAsync("http://localhost:5000/api/mock");
+        temp = await test.Content.ReadAsStringAsync();
+        if (temp != "")
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+}
