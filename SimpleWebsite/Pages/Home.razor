@@ -19,8 +19,8 @@ This is a v1.3 test
     {
         Console.WriteLine("Home page initialized");
         HttpClient client = new HttpClient();
-        client.BaseAddress = new Uri("https://localhost:5000");
-        var test = await client.GetAsync("http://localhost:5000/api/mock");
+        client.BaseAddress = new Uri("https://localhost:7139");
+        var test = await client.GetAsync("http://localhost:7139/api/mock");
         temp = await test.Content.ReadAsStringAsync();
         if (temp != "")
         {
