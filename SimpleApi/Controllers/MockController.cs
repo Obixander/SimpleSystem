@@ -12,24 +12,24 @@ namespace SimpleApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            string query = "SELECT TOP 1 * FROM SimpleTable ORDER BY id"; // Modify table and column names
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
+            //string query = "SELECT TOP 1 * FROM SimpleTable ORDER BY id"; // Modify table and column names
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    SqlCommand command = new SqlCommand(query, connection);
+            //    connection.Open();
 
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.Read()) // Reads the first row
-                    {
-                        return Ok(reader["Column2"]);
-                    }
-                    else
-                    {
-                        Console.WriteLine("No data found.");
-                    }
-                }
-            }
+            //    using (SqlDataReader reader = command.ExecuteReader())
+            //    {
+            //        if (reader.Read()) // Reads the first row
+            //        {
+            //            return Ok(reader["Column2"]);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("No data found.");
+            //        }
+            //    }
+            //}
 
             return Ok("Hello World");
         }
